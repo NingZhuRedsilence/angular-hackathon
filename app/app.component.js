@@ -20,13 +20,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 //Gengwu Li: changed to typescript
 var core_1 = require('@angular/core');
+//Gengwu Li: import what ever ui-control you want from fuel-ui
+var fuel_ui_1 = require('fuel-ui/fuel-ui');
+var fuel_ui_2 = require('fuel-ui/fuel-ui');
 var AppComponent = (function () {
     function AppComponent() {
+        this.title = "hello";
+        this.week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+        this.datePickerValue = new Date(2016, 7, 6);
     }
+    AppComponent.prototype.editEvent = function () {
+        alert("hello");
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>AngularAttack 2016</h1><p>Your project runs!</p>'
+            templateUrl: 'templates/angular-attack.html',
+            //Gengwu Li: remember if you want to use it, you need to add it to directive array
+            directives: [fuel_ui_2.DATE_PICKER_PROVIDERS, fuel_ui_2.Collapse, fuel_ui_1.Modal]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

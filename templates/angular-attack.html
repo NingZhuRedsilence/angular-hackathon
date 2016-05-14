@@ -1,0 +1,62 @@
+<h1>AngularAttack 2016</h1>
+<p>Your project runs!</p>
+<table cellpadding="0" cellspacing="0">
+    <thead>
+        <tr>
+            <th *ngFor="let weekday of week">{{weekday}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <!-- <td *ngFor="let weekday of week">{{weekday}}</td> -->
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td (click)="editEvent()">{{title}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<button class="btn btn-primary" (click)="modal.showModal()">Toggle Modal</button>
+<modal #modal
+    modalTitle="Modal Title"
+    [closeButton]="true"
+    [closeOnUnfocus]="true">
+    <div class="modal-body">
+        <ul>
+            <li>Any</li>
+            <li>Html</li>
+            <li>Here</li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="modal.closeModal()">
+            <i class="fa fa-chevron-left"></i> Go Back
+        </button>
+    </div>
+</modal>
+
+
+<div class="form-group">
+    <label for="date">Pick a Date</label>
+    <date-picker
+        minDate="11/1/2015"
+        maxDate="11/12/2016" 
+        [dateFilter]="dateFilter"
+        (valueChange)="datePickerValue"
+        [(value)]="datePickerValue"
+        >
+        <div class="date-picker-input-group">
+            <input name="date" dateField class="form-control" value="5/6/2016" placeholder="pick a date" />
+        </div>
+    </date-picker>
+    <div class="col-md-4">
+        date-picker value: {{datePickerValue}}<br />
+    </div>
+
+</div>
